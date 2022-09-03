@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2 id="header"></h2>
+    <label id="idError"></label>
+    <form action="#">
+        <input type="hidden" name="id" id="id">
+
+        <label for="name">Имя:</label>
+        <input type="text" name="name" id="name">
+        <br>
+
+        <label for="email">E-mail:</label>
+        <input type="email" name="email" id="email">
+        <br>
+
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password">
+        <br>
+
+        <!-- <button id="button">Сохранить</button> -->
+        <input type="submit" value="Сохранить" id="button">
+    </form>
+
+    <script>
+        document.querySelector('#header').innerText = localStorage.idUser ? 'Редактирование пользователя' : 'Новый пользователь'
+        if(localStorage.idUser){
+            getUser()
+        }
+        document.querySelector('#button').onclick = (event)=>{
+            event.preventDefault()
+            saveUser(localStorage.idUser)
+        };
+    </script>
+</body>
+</html>
